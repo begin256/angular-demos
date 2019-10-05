@@ -5,3 +5,24 @@
 </nav>
 <router-outlet></router-outlet>
 <app-messages></app-messages>
+<app-keyup></app-keyup>
+<app-click-me></app-click-me>
+<app-on-changes-parent></app-on-changes-parent>
+<p appHighlight>Highlight me!</p>
+<p appHighlight highlightColor="yellow">Highlighted in yellow</p>
+<p appHighlight="color">Highlight me</p>
+<h3>------test------</h3>
+<h1>first attribute directive</h1>
+<h4>pick a Highlight color</h4>
+<div>
+    <input type="radio" name="colors" (click)="color='lightgreen'">Green
+    <input type="radio" name="colors" (click)="color='yellow'">Yellow
+    <input type="radio" name="colors" (click)="color='cyan'">Cyan
+    <input type="radio" name="colors" (click)="color='black'">black
+    <p [appHighlight]="color" >Hightlight me</p>
+    <p [appHighlight]="color" defaultColor="violet">Highlight</p>
+</div>
+<!-- <app-reactive-favorite-color></app-reactive-favorite-color> -->
+<app-template-favorite-color></app-template-favorite-color>
+<app-name-editor></app-name-editor>
+<app-profile-editor></app-profile-editor>

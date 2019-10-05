@@ -1,0 +1,52 @@
+<p>profile-editor works!</p>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label>
+        First name:
+        <input type="text" formControlName="firstName" required>
+    </label>
+    <label>
+        Last name:
+        <input type="text" formControlName="lastName">
+    </label>
+    <div formGroupName="address">
+        <h3>Adress</h3>
+        <label>
+            street:
+            <input type="text" formControlName="street">
+        </label>
+        <label>
+            City:
+            <input type="text" formControlName="city">
+          </label>
+          
+          <label>
+            State:
+            <input type="text" formControlName="state">
+          </label>
+        
+          <label>
+            Zip Code:
+            <input type="text" formControlName="zip">
+          </label>
+        </div>
+
+        <div formArrayName="aliases">
+            <h3>Aliases</h3><button (click)="addAlias()">add alias</button>
+            <div *ngFor="let address of aliases.controls; let i=index">
+                <label>
+                    alias:
+                    <input type="text" [formControlName]="i">
+                </label>
+            </div>
+        </div>
+
+</form>
+
+
+<button type="submit" [disabled]="!profileForm.valid">submit</button>
+<p>
+    <button (click)="updateProfile()">update</button>
+</p>
+<p>
+    Form status:{{profileForm.status}}
+</p>
